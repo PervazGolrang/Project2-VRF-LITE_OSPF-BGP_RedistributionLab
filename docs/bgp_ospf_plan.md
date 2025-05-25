@@ -12,8 +12,8 @@
 | R6_PE2  | 65020 | Confederation Sub-AS               |
 | R7_CE1  | 65100 | Customer ASN (BGP PE-CE or OSPF)   |
 | R8_CE2  | 65100 | Customer ASN                       |
-| R9      | —     | Not part of BGP                    |
-| R10     | —     | Not part of BGP                    |
+| R9_C1   | —     | Not part of BGP                    |
+| R10_C2  | —     | Not part of BGP                    |
 
 ### Notes:
 
