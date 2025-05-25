@@ -2,12 +2,11 @@
 
 ## Overview
 
-This project simulates a complex service provider-style environment integrating MPLS, OSPF, BGP (with route reflectors and confederations), L3VPN with VRF, IPsec VPN tunnels, redistribution between routing protocols, and core enterprise LAN features. The lab is built entirely in EVE-NG using Cisco IOSv, IOSv-L2, CSR1000v, and a Linux node. The lab includes:
+This project simulates a service provider-style environment integrating OSPF, BGP (with route reflectors and confederations), VRF-lite, IPsec VPN tunnels, redistribution between routing protocols, and core enterprise LAN features. The lab is built entirely in EVE-NG using Cisco IOSv-L2, CSR1000v, and a Linux node. The lab includes:
 
 * BGP with confederation and route reflection
 * Multi-area OSPF with virtual link and stub/NSSA areas
-* MPLS core with L3VPN (VRF, RD/RT)
-* Sham-link between PE routers
+* Basic VRF-Lite without MPLS
 * Redistribution between OSPF and BGP with loop prevention
 * Branch IPsec VPN tunnel with IKEv2
 * LAN switching with STP, LACP, and DR/BDR election
@@ -41,18 +40,15 @@ This project simulates a complex service provider-style environment integrating 
 * Area 51 (transit for virtual-link between R5 and R7)
 * DR/BDR election: R9 ↔ SW1, R10 ↔ SW2
 
-### MPLS & L3VPN
+### VRF-Lite
 
-* MPLS LDP on R3 and R4
 * VRF configuration on R5 and R6
-* Sham-link configured across PE1 and PE2
-* Route Distinguisher and Route Target for VRF
 
 ### BGP
 
 * iBGP with RR: R1 and R2
 * BGP Confederation: R1–R6 split into sub-ASes
-* CE–PE BGP or OSPF (varies by site)
+* CE–PE OSPF
 
 ### Security
 
@@ -76,7 +72,7 @@ PROJECT2-MPLS_OSPF_BGP_REDIS_LAB/
 ├── captures/           # .pcap files from Wireshark/EVE-NG
 ├── configs/            # Final .txt configs for each device
 ├── configs_yaml/       # Same configs in .yaml (structured)
-├── docs/               # Diagrams, reference PDFs
+├── docs/               # Diagrams, reference PDFs, removed steps
 ├── notes/
 │   └── notes.md        # Free-form implementation notes
 ├── steps/              # Step-by-step setup instructions
@@ -91,7 +87,7 @@ PROJECT2-MPLS_OSPF_BGP_REDIS_LAB/
 
 ## Lab Goals
 
-* Achieve full end-to-end reachability across MPLS/BGP/OSPF
+* Achieve full end-to-end reachability across BGP/OSPF
 * Validate redistribution and route tagging
 * Demonstrate VPN failover and routing behavior
 * Test PC reachability and log/syslog features via Ubuntu

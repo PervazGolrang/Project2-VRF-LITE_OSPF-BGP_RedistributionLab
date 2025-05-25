@@ -1,4 +1,4 @@
-# Step 06 – IPsec VPN with IKEv2 (R9 ↔ R10)
+# Step 06 - IPsec VPN with IKEv2 (R9 ↔ R10)
 
 This step configures an IKEv2-based IPsec tunnel between R9 and R10. The tunnel is used for secure communication between branch sites.
 

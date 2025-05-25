@@ -1,4 +1,4 @@
-# Step 02 – OSPF Configuration
+# Step 02 - OSPF Configuration
 
 Configure OSPF across all routers with correct area assignments, passive-interface defaults, loopback advertisement, and virtual-link setup.
 

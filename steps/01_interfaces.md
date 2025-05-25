@@ -1,4 +1,4 @@
-# Step 01 – Interface and Loopback Configuration
+# Step 01 - Interface and Loopback Configuration
 
 Configure all interfaces and Loopback0 IPs on each router based on the IP Plan.
 This step ensures reachability and prepares for routing protocols.

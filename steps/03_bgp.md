@@ -1,10 +1,12 @@
-# Step 03 – BGP Configuration (Confederation + Route Reflectors + PE-CE)
+# Step 03 - BGP Configuration (Confederation + Route Reflectors + PE-CE)
 
 This step establishes full BGP across the backbone and CE/PE, using:
 
 * Confederation structure between sub-ASNs
 * Route reflector sessions from R1_RR1 and R2_RR2
 * PE-CE BGP or redistribution prep
+
+# MEMO: Add RR til BGP - gjøres i morgen
 
 ---
 
