@@ -62,7 +62,7 @@ interface Tunnel100
  ip address 192.168.100.1 255.255.255.252
  tunnel source Loopback10
  tunnel destination 192.168.10.2
- tunnel mode point-to-point
+ tunnel mode ipsec ipv4
 !
 router ospf 100 vrf CUSTOMER1
  area 100 sham-link 10.255.0.5 10.255.0.6
@@ -81,7 +81,7 @@ interface Tunnel100
  ip address 192.168.100.2 255.255.255.252
  tunnel source Loopback10
  tunnel destination 192.168.10.1
- tunnel mode point-to-point
+ tunnel mode ipsec ipv4
 !
 router ospf 100 vrf CUSTOMER1
  area 100 sham-link 10.255.0.6 10.255.0.5

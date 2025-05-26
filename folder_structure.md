@@ -1,34 +1,36 @@
 # Folder Structure – Project 2
 
 ```
-PROJECT2-MPLS_OSPF_BGP_REDISTRIBUTIONLAB/
+PROJECT2-VRF-LITE_OSPF_BGP_REDISTRIBUTION_LAB/
 ├── captures/                # Wireshark .pcap files (exported from EVE-NG)
 ├── configs/                 # Final full device CLI configs (.txt)
 │   ├── R1_RR1.txt
 │   ├── R2_RR2.txt
 │   └── ...
 ├── configs_yaml/            # Same configs in structured YAML format (optional)
-├── docs/                    # Exports of diagrams, PDFs, reference screenshots
-|   └── ip_plan.md 
+├── docs/                    # Exports of diagrams, PDFs, removed steps
+|   ├── ip_plan.md
+│   ├── bgp_ospf_plan.md
+│   ├── 04_mpls - DROPPED.md
+│   └── 05_vrf_l3vpn - DROPPED.md
 ├── notes/                   # Notes and scratchpad for ideas during lab work
 │   └── notes.md
 ├── steps/                   # Ordered configuration steps per phase
 │   ├── 01_interfaces.md
 │   ├── 02_ospf.md
 │   ├── 03_bgp.md
-│   ├── 04_mpls.md
-│   ├── 05_vrf_l3vpn.md
-│   ├── 06_ipsec.md
-│   ├── 07_redistribution.md
-│   ├── 08_switching_vlan.md
-│   └── 09_optional_tuning.md
+│   ├── 04_vrf_lite.md
+│   ├── 05_ipsec.md
+│   ├── 06_redistribution.md
+│   ├── 07_switching_vlan.md
+│   ├── 08_senhancements.md
+│   └── 09_ubuntu.md
 ├── topology/                # .drawio and/or .top files for the full lab layout
 │   ├── project2_topology.drawio
 │   └── project2_topology-eve_ng.png
 ├── .gitattributes
 ├── LICENSE
 ├── README.md
-├── bgp_ospf_plan.md
 └── folder_structure.md
 ```
 

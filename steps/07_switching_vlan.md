@@ -1,4 +1,4 @@
-# Step 08 - VLAN, ROAS, VRRP, and L2 Switch Configuration
+# Step 07 - VLAN, ROAS, VRRP, and L2 Switch Configuration
 
 This step sets up:
 

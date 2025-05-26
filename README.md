@@ -1,15 +1,15 @@
-# Project 2 – MPLS, OSPF, BGP, Redistribution & VPN Lab
+# Project 2 – VRF-Lite, OSPF, BGP, Redistribution & VPN Lab
 
 ## Overview
 
-This project simulates a service provider-style environment integrating OSPF, BGP (with route reflectors and confederations), VRF-lite, IPsec VPN tunnels, redistribution between routing protocols, and core enterprise LAN features. The lab is built entirely in EVE-NG using Cisco IOSv-L2, CSR1000v, and a Linux node. The lab includes:
+This project simulates a service provider-style environment integrating OSPF, BGP (with confederations), VRF-lite, IPsec VPN tunnels, redistribution between routing protocols, and core enterprise LAN features. The lab is built entirely in EVE-NG using Cisco IOSv-L2, CSR1000v, and a Linux node. The lab includes:
 
-* BGP with confederation and route reflection
-* Multi-area OSPF with virtual link and stub/NSSA areas
+* BGP with confederation
+* Multi-area OSPF with virtual link and stub/NSSA areas  ## Possibly to be removed
 * Basic VRF-Lite without MPLS
 * Redistribution between OSPF and BGP with loop prevention
 * Branch IPsec VPN tunnel with IKEv2
-* LAN switching with STP, LACP, and DR/BDR election
+* LAN switching with STP, LACP
 * Syslog/SNMP testing with Ubuntu
 
 ---
@@ -36,9 +36,8 @@ This project simulates a service provider-style environment integrating OSPF, BG
 ### Core Routing
 
 * OSPF Area 0 (Backbone): R1–R6
-* Stub/NSSA Areas: Area 100 (R7–R9), Area 200 (R8–R10)
-* Area 51 (transit for virtual-link between R5 and R7)
-* DR/BDR election: R9 ↔ SW1, R10 ↔ SW2
+* Stub/NSSA Areas: Area 100 (R7–R9), Area 200 (R8–R10) - WIP
+* Area 51 (transit for virtual-link between R5 and R7) - WIP # Possibly to be removed
 
 ### VRF-Lite
 
@@ -68,7 +67,7 @@ This project simulates a service provider-style environment integrating OSPF, BG
 ## Directory Layout
 
 ```
-PROJECT2-MPLS_OSPF_BGP_REDIS_LAB/
+PROJECT2-VRF-LITE_OSPF_BGP_REDISTRIBUTION_LAB/
 ├── captures/           # .pcap files from Wireshark/EVE-NG
 ├── configs/            # Final .txt configs for each device
 ├── configs_yaml/       # Same configs in .yaml (structured)
@@ -88,8 +87,8 @@ PROJECT2-MPLS_OSPF_BGP_REDIS_LAB/
 ## Lab Goals
 
 * Achieve full end-to-end reachability across BGP/OSPF
-* Validate redistribution and route tagging
-* Demonstrate VPN failover and routing behavior
+* Validate redistribution and loop-prevention route-map
+* Demonstrate routing behavior and CoPP **interface** protection
 * Test PC reachability and log/syslog features via Ubuntu
 * Capture packets to validate tunnels and routing
 

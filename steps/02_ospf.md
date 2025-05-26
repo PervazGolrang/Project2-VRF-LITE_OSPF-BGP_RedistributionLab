@@ -1,6 +1,6 @@
 # Step 02 - OSPF Configuration
 
-Configure OSPF across all routers with correct area assignments, passive-interface defaults, loopback advertisement, and virtual-link setup.
+Configure OSPF across all routers with correct area assignments, passive-interface defaults, and loopback advertisement.
 
 ---
 
@@ -13,6 +13,9 @@ router ospf 1
  network 10.0.0.0 0.0.0.3 area 0
  passive-interface default
  no passive-interface GigabitEthernet1
+!
+interface GigabitEthernet1
+ ip ospf network point-to-point
 ```
 
 ## R2_RR2
@@ -24,6 +27,9 @@ router ospf 1
  network 10.0.0.4 0.0.0.3 area 0
  passive-interface default
  no passive-interface GigabitEthernet1
+!
+interface GigabitEthernet1
+ ip ospf network point-to-point
 ```
 
 ## R3_P1
@@ -37,6 +43,9 @@ router ospf 1
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
  no passive-interface GigabitEthernet3
+!
+interface range GigabitEthernet1-3
+ ip ospf network point-to-point
 ```
 
 ## R4_P2
@@ -50,6 +59,9 @@ router ospf 1
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
  no passive-interface GigabitEthernet3
+!
+interface range GigabitEthernet1-3
+ ip ospf network point-to-point
 ```
 
 ## R5_PE1
@@ -63,6 +75,9 @@ router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
+!
+interface range GigabitEthernet1-2
+ ip ospf network point-to-point
 ```
 
 ## R6_PE2
@@ -76,6 +91,9 @@ router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
+!
+interface range GigabitEthernet1-2
+ ip ospf network point-to-point
 ```
 
 ## R7_CE1
@@ -89,6 +107,10 @@ router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
+ area 100 nssa
+!
+interface range GigabitEthernet1
+ ip ospf network point-to-point
 ```
 
 ## R8_CE2
@@ -102,6 +124,10 @@ router ospf 1
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
+ area 200 stub
+!
+interface range GigabitEthernet1
+ ip ospf network point-to-point
 ```
 
 ## R9_C1 (DR/BDR Area 100)
@@ -114,7 +140,7 @@ router ospf 1
  network 10.10.10.1 0.0.0.0 area 100
  passive-interface default
  no passive-interface GigabitEthernet1
- no passive-interface GigabitEthernet3
+ no passive-interface GigabitEthernet2
 ```
 
 ## R10_C2 (DR/BDR Area 200)
@@ -127,21 +153,5 @@ router ospf 1
  network 10.10.20.1 0.0.0.0 area 200
  passive-interface default
  no passive-interface GigabitEthernet1
- no passive-interface GigabitEthernet3
-```
-
----
-
-## Virtual Link
-
-### On R5_PE1:
-
-```bash
-area 51 virtual-link 10.255.1.1
-```
-
-### On R7_CE1:
-
-```bash
-area 51 virtual-link 10.255.0.5
+ no passive-interface GigabitEthernet2
 ```

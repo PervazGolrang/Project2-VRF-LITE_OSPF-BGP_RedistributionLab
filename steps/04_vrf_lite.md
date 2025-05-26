@@ -1,4 +1,4 @@
-# Step 05 - VRF-Lite Configuration
+# Step 04 - VRF-Lite Configuration
 
 This step configures VRF separation on the PE routers (R5_PE1 and R6_PE2) without using MPLS or BGP VPNv4. Each site is isolated into its own VRF, and routing is exchanged with the CE routers using OSPF and BGP (per VRF).
 
@@ -49,7 +49,6 @@ router ospf 100 vrf CUSTOMER1
  router-id 10.255.0.5
  network 10.0.1.0 0.0.0.3 area 100
  network 192.168.10.1 0.0.0.0 area 100
- redistribute bgp 65020 subnets
 ```
 
 ### R6_PE2
@@ -59,7 +58,6 @@ router ospf 100 vrf CUSTOMER1
  router-id 10.255.0.6
  network 10.0.1.4 0.0.0.3 area 100
  network 192.168.10.2 0.0.0.0 area 100
- redistribute bgp 65020 subnets
 ```
 
 ---
@@ -70,7 +68,7 @@ router ospf 100 vrf CUSTOMER1
 
 ```bash
 router bgp 65020
- address-family ipv4 vrf CUSTOMER1
+address-family ipv4 vrf CUSTOMER1
   redistribute ospf 100
 ```
 
@@ -78,7 +76,7 @@ router bgp 65020
 
 ```bash
 router bgp 65020
- address-family ipv4 vrf CUSTOMER1
+address-family ipv4 vrf CUSTOMER1
   redistribute ospf 100
 ```
 

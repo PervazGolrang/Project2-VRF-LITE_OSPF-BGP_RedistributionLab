@@ -12,6 +12,7 @@ This file documents changes, limitations, and key decisions made during the deve
   * VPNv4 address-family in BGP
   * Route-target import/export under `address-family ipv4 vrf`
   * Sham-link via Loopback10
+  * BGP route-reflector
 
 However, this setup failed due to platform limitations, mentioned below:
 
@@ -19,22 +20,28 @@ However, this setup failed due to platform limitations, mentioned below:
 
 ## CSR1000v Limitations
 
-* `route-target` under `address-family ipv4 vrf` does **not exist** on CSR1000v
-* `mpls ip` and LDP are **accepted** but non-functional
-* `show bgp vpnv4 vrf` remains empty regardless of config
-* CoPP policies (`control-plane service-policy`) fail to install
+* `route-target` under `address-family ipv4 vrf` is **not supported** on CSR1000v
+* `mpls ip` and LDP are **accepted** in config, but are **non-functional**
+* `show bgp vpnv4 vrf` always returns **empty**, regardless of config
+* CoPP policies (`control-plane service-policy`) **fail to install**
 
-Because of this, the lab was converted to **VRF-Lite** instead of full MPLS L3VPN.
+Because of this, the lab was converted from **MPLS L3VPN** to **VRF-Lite**.
 
 ---
 
 ## VRF-Lite Adjustments
-* Removed `04_mpls.md` from the project, to `docs`
-* Removed `05_vrf_l3vpn.md` from the project, to `docs`
-* Created `05_vrf_lite.md` to the project
-* All BGP per-VRF now uses simple redistribution (no route-targets)
-* CE routers (R7, R8) use OSPF only, no BGP or MPLS
-* Redistribution is now one-way: OSPF ↔ BGP inside the VRF (on PE)
+* Moved `04_mpls.md` and `05_vrf_l3vpn.md` to `docs/`
+* Created new file `05_vrf_lite.md`
+* All per-VRF BGP now uses **manual redistribution** (no RT import/export)
+* CE routers (R7, R8) use **OSPF only**, no BGP or MPLS
+* Redistribution is now **one-way**: OSPF ↔ BGP inside VRFs on PE routers
+
+---
+
+## IKEv2 Note
+* Attempted IKEv2 with `aes-gcm-256` and `integrity null`
+* Although `aes-gcm-256` was supported, the `integrity null` was **rejected**
+* Resolved by switching to `encryption aes-256` with `integrity sha256`
 
 ---
 
@@ -57,6 +64,11 @@ Because of this, the lab was converted to **VRF-Lite** instead of full MPLS L3VP
 
 ---
 
+## BGP Route-reflector
+* Moving RR to a larger and more complex BGP-focused lab.
+
+---
+
 ## Testing and Verification
 
 * All validation is done using:
@@ -70,4 +82,4 @@ Because of this, the lab was converted to **VRF-Lite** instead of full MPLS L3VP
 
 ## Summary
 
-This project simulates a multi-site provider-style lab using pure VRF-Lite due to CSR1000v feature limitations. All original MPLS-related steps are removed and moved to `docs`, however, full functionality was maintained using routing separation, redistribution, and basic services.
+This project simulates a multi-site provider-style lab using pure VRF-Lite due to CSR1000v feature limitations. All original MPLS-related are removed and moved to `docs`, however, full functionality was maintained using routing separation, redistribution, and basic services.

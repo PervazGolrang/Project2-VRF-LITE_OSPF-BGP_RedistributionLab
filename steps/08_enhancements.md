@@ -1,4 +1,4 @@
-# Step 09 - Enhancements: CoPP, SNMPv3, Syslog, DHCP (VRF-Lite)
+# Step 08 - Enhancements: CoPP, SNMPv3, Syslog, DHCP (VRF-Lite)
 
 This step includes enhancements to harden and monitor the network in the VRF-Lite environment.
 
@@ -6,9 +6,8 @@ This step includes enhancements to harden and monitor the network in the VRF-Lit
  
 ## Control Plane Policing (CoPP) on core and PE routers
 
-# Because CoPP is not fully supported on CSR1000v in EVE-NG; I will simulate CoPP by using ACLs.
-
-CoPP for protecting the router CPU from excessive traffic.
+* Because CoPP is not fully supported on CSR1000v in EVE-NG; I will simulate CoPP by using ACLs.
+* CoPP used for protecting the router **interface** from excessive traffic.
 
 ```bash
 access-list 100 permit ospf any any
