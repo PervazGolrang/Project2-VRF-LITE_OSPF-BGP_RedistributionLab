@@ -2,12 +2,10 @@
 
 ```
 PROJECT2-VRF-LITE_OSPF_BGP_REDISTRIBUTION_LAB/
-├── captures/                # Wireshark .pcap files (exported from EVE-NG)
 ├── configs/                 # Final full device CLI configs (.txt)
 │   ├── R1_RR1.txt
 │   ├── R2_RR2.txt
 │   └── ...
-├── configs_yaml/            # Same configs in structured YAML format (optional)
 ├── docs/                    # Exports of diagrams, PDFs, removed steps
 |   ├── ip_plan.md
 │   ├── bgp_ospf_plan.md

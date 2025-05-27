@@ -5,7 +5,7 @@
 This project simulates a service provider-style environment integrating OSPF, BGP (with confederations), VRF-lite, IPsec VPN tunnels, redistribution between routing protocols, and core enterprise LAN features. The lab is built entirely in EVE-NG using Cisco IOSv-L2, CSR1000v, and a Linux node. The lab includes:
 
 * BGP with confederation
-* Multi-area OSPF with virtual link and stub/NSSA areas  ## Possibly to be removed
+* Multi-area OSPF with stub/NSSA areas
 * Basic VRF-Lite without MPLS
 * Redistribution between OSPF and BGP with loop prevention
 * Branch IPsec VPN tunnel with IKEv2
@@ -20,7 +20,6 @@ This project simulates a service provider-style environment integrating OSPF, BG
 * **Router Images:**
 
   * CSR1000v
-  * IOSv
 * **Switch Images:**
 
   * IOSv-L2
@@ -36,8 +35,7 @@ This project simulates a service provider-style environment integrating OSPF, BG
 ### Core Routing
 
 * OSPF Area 0 (Backbone): R1–R6
-* Stub/NSSA Areas: Area 100 (R7–R9), Area 200 (R8–R10) - WIP
-* Area 51 (transit for virtual-link between R5 and R7) - WIP # Possibly to be removed
+* Stub/NSSA Areas: Area 100 (R7–R9), Area 200 (R8–R10)
 
 ### VRF-Lite
 
@@ -68,9 +66,7 @@ This project simulates a service provider-style environment integrating OSPF, BG
 
 ```
 PROJECT2-VRF-LITE_OSPF_BGP_REDISTRIBUTION_LAB/
-├── captures/           # .pcap files from Wireshark/EVE-NG
 ├── configs/            # Final .txt configs for each device
-├── configs_yaml/       # Same configs in .yaml (structured)
 ├── docs/               # Diagrams, reference PDFs, removed steps
 ├── notes/
 │   └── notes.md        # Free-form implementation notes

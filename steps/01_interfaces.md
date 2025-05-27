@@ -101,7 +101,7 @@ interface GigabitEthernet2
  no shutdown
 ```
 
-## R7_CE1 (IOSv)
+## R7_CE1 (CSR1000v)
 
 ```bash
 interface Loopback0
@@ -117,7 +117,7 @@ interface GigabitEthernet2
  no shutdown
 ```
 
-## R8_CE2 (IOSv)
+## R8_CE2 (IOSvCSR1000v)
 
 ```bash
 interface Loopback0
@@ -133,7 +133,7 @@ interface GigabitEthernet2
  no shutdown
 ```
 
-## R9_C1 (IOSv)
+## R9_C1 (CSR1000v)
 
 ```bash
 interface Loopback0
@@ -152,7 +152,7 @@ interface GigabitEthernet3
  no shutdown
 ```
 
-## R10_C2 (IOSv)
+## R10_C2 (CSR1000v)
 
 ```bash
 interface Loopback0

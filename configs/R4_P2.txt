@@ -1,0 +1,177 @@
+
+R4_P2#show run
+Building configuration...
+
+Current configuration : 7967 bytes
+!
+! Last configuration change at 13:56:09 UTC Tue May 27 2025
+!
+version 17.3
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service call-home
+platform qfp utilization monitor load 80
+platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname R4_P2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 64000
+!
+no aaa new-model
+!
+!
+!
+!
+no ip domain lookup
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+subscriber templating
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+spanning-tree extend system-id
+!
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+class-map match-any ROUTING-TRAFFIC
+ match access-group 100
+!
+policy-map CoPP
+ class ROUTING-TRAFFIC
+  police 10000000 64000 conform-action transmit  exceed-action drop
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 10.255.0.4 255.255.255.255
+!
+interface GigabitEthernet1
+ description "To R2_RR2"
+ ip address 10.0.0.6 255.255.255.252
+ ip ospf network point-to-point
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service-policy input CoPP
+!
+interface GigabitEthernet2
+ description "To R3_P1"
+ ip address 10.0.0.10 255.255.255.252
+ ip ospf network point-to-point
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service-policy input CoPP
+!
+interface GigabitEthernet3
+ description "To R6_PE2"
+ ip address 10.0.0.17 255.255.255.252
+ ip ospf network point-to-point
+ negotiation auto
+ no mop enabled
+ no mop sysid
+ service-policy input CoPP
+!
+interface GigabitEthernet4
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+router ospf 1
+ router-id 10.255.0.4
+ passive-interface default
+ no passive-interface GigabitEthernet1
+ no passive-interface GigabitEthernet2
+ no passive-interface GigabitEthernet3
+ network 10.0.0.0 0.0.0.255 area 0
+ network 10.255.0.4 0.0.0.0 area 0
+!
+router bgp 65010
+ bgp router-id 10.255.0.4
+ bgp log-neighbor-changes
+ bgp confederation identifier 65000
+ bgp confederation peers 65000 65020
+ neighbor 10.255.0.1 remote-as 65000
+ neighbor 10.255.0.1 description "R1_RR1"
+ neighbor 10.255.0.1 ebgp-multihop 2
+ neighbor 10.255.0.1 update-source Loopback0
+ neighbor 10.255.0.2 remote-as 65000
+ neighbor 10.255.0.2 description "R2_RR2"
+ neighbor 10.255.0.2 ebgp-multihop 2
+ neighbor 10.255.0.2 update-source Loopback0
+ neighbor 10.255.0.3 remote-as 65010
+ neighbor 10.255.0.3 description "R3_P1"
+ neighbor 10.255.0.3 update-source Loopback0
+ neighbor 10.255.0.5 remote-as 65020
+ neighbor 10.255.0.5 description "R5_PE1"
+ neighbor 10.255.0.5 ebgp-multihop 2
+ neighbor 10.255.0.5 update-source Loopback0
+ neighbor 10.255.0.6 remote-as 65020
+ neighbor 10.255.0.6 description "R6_PE2"
+ neighbor 10.255.0.6 ebgp-multihop 2
+ neighbor 10.255.0.6 update-source Loopback0
+ !
+ address-family ipv4
+  neighbor 10.255.0.1 activate
+  neighbor 10.255.0.2 activate
+  neighbor 10.255.0.3 activate
+  neighbor 10.255.0.5 activate
+  neighbor 10.255.0.6 activate
+ exit-address-family
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+!
+!
+!
+ip access-list extended 100
+ 10 permit ospf any any
+ 20 permit tcp any any eq bgp
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ login
+ transport input ssh
+!
+!
+end

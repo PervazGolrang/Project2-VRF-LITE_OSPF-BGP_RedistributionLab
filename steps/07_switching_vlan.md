@@ -13,7 +13,8 @@ This step sets up:
 
 ### R9_C1 (Site 1)
 
-The management VLAN is optional, however, I see it as best practice.
+* The management VLAN is optional, however, I see it as best practice for seperating control traffic.
+* While the VLAN redundancy is quite a bit redundant due to the design, it still serves as good training, especially simulating scalability, reflecting how  a larger enteprise network might realistically operate.
 
 ```bash
 interface GigabitEthernet3.10

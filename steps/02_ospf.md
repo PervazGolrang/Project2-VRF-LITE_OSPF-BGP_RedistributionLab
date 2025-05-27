@@ -2,6 +2,15 @@
 
 Configure OSPF across all routers with correct area assignments, passive-interface defaults, and loopback advertisement.
 
+Configuration of OSPF with three areas:
+
+- **Area 0**: Provider and CE routers (core and edge backbone)
+- **Area 100**: Customer Site 1 (CE1 and C1)
+- **Area 200**: Customer Site 2 (CE2 and C2)
+
+- **Area 100** = NSSA (R5–R7–R9)
+- **Area 200** = Stub (R6–R8–R10)
+
 ---
 
 ## R1_RR1
@@ -71,7 +80,7 @@ router ospf 1
  router-id 10.255.0.5
  network 10.255.0.5 0.0.0.0 area 0
  network 10.0.0.12 0.0.0.3 area 0
- network 10.0.1.0 0.0.0.3 area 51
+ network 10.0.1.0 0.0.0.3 area 100
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
@@ -102,12 +111,11 @@ interface range GigabitEthernet1-2
 router ospf 1
  router-id 10.255.1.1
  network 10.255.1.1 0.0.0.0 area 100
- network 10.0.1.2 0.0.0.0 area 51
+ network 10.0.1.0 0.0.0.3 area 100
  network 10.0.1.8 0.0.0.3 area 100
  passive-interface default
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
- area 100 nssa
 !
 interface range GigabitEthernet1
  ip ospf network point-to-point
@@ -122,9 +130,9 @@ router ospf 1
  network 10.0.1.6 0.0.0.0 area 200
  network 10.0.1.12 0.0.0.3 area 200
  passive-interface default
+ area 100 nssa
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
- area 200 stub
 !
 interface range GigabitEthernet1
  ip ospf network point-to-point
@@ -139,6 +147,7 @@ router ospf 1
  network 10.0.1.10 0.0.0.0 area 100
  network 10.10.10.1 0.0.0.0 area 100
  passive-interface default
+ area 200 stub
  no passive-interface GigabitEthernet1
  no passive-interface GigabitEthernet2
 ```
