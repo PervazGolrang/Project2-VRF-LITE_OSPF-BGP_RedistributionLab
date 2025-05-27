@@ -27,7 +27,7 @@
 | Link / Devices    | Area     | Notes                                  |
 | ----------------- | -------- | -------------------------------------- |
 | Core (R1–R6)      | 0        | Backbone area                          |
-| R5 ↔ R7           | 51       | Transit area for virtual-link          |
+| R5 ↔ R7           | 100      | Transit area for virtual-link          |
 | R7 ↔ R9           | 100      | Stub area                              |
 | R6 ↔ R8 ↔ R10     | 200      | NSSA area                              |
 
