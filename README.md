@@ -1,4 +1,4 @@
-# Project 2 – VRF-Lite, OSPF, BGP, Redistribution & VPN Lab
+# Project 2 – VRF-Lite, OSPF, BGP, Redistribution & VPN
 
 ## Overview
 
