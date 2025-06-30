@@ -56,9 +56,12 @@ This project simulates a service provider-style environment integrating OSPF, BG
 
 ---
 
-## Topology
-[`Topology_drawio.drawio`](topology/project2_topology.drawio)
-[`Topology_eve-ng.png`](topology/project2_topology-eve_ng.png)
+## Network Topology
+
+![`Network Topology`](topology/project2_topology-eve_ng.png)
+
+### Drawio Topology
+[`project2_topology.drawio`](topology/project2_topology.drawio)  
 
 ---
 
