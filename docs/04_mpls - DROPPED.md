@@ -1,6 +1,6 @@
-# Step 04 – MPLS and LDP Configuration
+# Step 04 - MPLS and LDP Configuration
 
-This step enables MPLS across the core network. LDP is configured to distribute labels over OSPF neighbors between P and PE routers. 
+This (unfinished) step enables MPLS across the core network. LDP is configured to distribute labels over OSPF neighbors between P and PE routers. 
 
 # NOTE:
 * This step has been removed due to lab limitations.

@@ -79,11 +79,3 @@ router bgp 65020
 address-family ipv4 vrf CUSTOMER1
   redistribute ospf 100
 ```
-
----
-
-## Summary
-
-This setup isolates customer traffic using VRFs (without MPLS). Each PE router runs both OSPF and BGP within the VRF to support route exchange and redistribution.
-
-VPNv4, route-targets, and LDP are not required.

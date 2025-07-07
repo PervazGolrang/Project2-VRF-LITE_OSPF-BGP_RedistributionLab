@@ -17,7 +17,7 @@
 
 ### Notes:
 
-* Confederation used to simulate scalable SP BGP
+* Confederation used to simulate scalable SP-BGP
 * BGP used between PE and CE (or OSPF redistributed)
 
 ---
@@ -30,9 +30,3 @@
 | R5 ↔ R7           | 100      | Transit area for virtual-link          |
 | R7 ↔ R9           | 100      | Stub area                              |
 | R6 ↔ R8 ↔ R10     | 200      | NSSA area                              |
-
-### Notes:
-
-* Virtual link required to bring CE1 (R7) into backbone via R5      # Possibly to be removed
-* Stub area used for simplicity at site 1                           # Possibly to be removed
-* NSSA area used at site 2 to test type-7 to type-5 redistribution  # Possibly to be removed

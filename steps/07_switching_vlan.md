@@ -23,7 +23,7 @@ interface GigabitEthernet3.10
 !
 interface GigabitEthernet3.99
  encapsulation dot1Q 99
- ip address 10.10.99.1 255.255.255.0    # MGMT VLAN
+ ip address 10.10.99.1 255.255.255.0       # MGMT VLAN
 ```
 
 ### R10_C2 (Site 2)
@@ -35,7 +35,7 @@ interface GigabitEthernet3.20
  !
  interface GigabitEthernet3.99
  encapsulation dot1Q 99
- ip address 10.10.99.1 255.255.255.0    # MGMT VLAN
+ ip address 10.10.99.1 255.255.255.0       # MGMT VLAN
 ```
 
 ---
@@ -83,7 +83,7 @@ interface GigabitEthernet0/1
  spanning-tree portfast
  spanning-tree bpduguard enable
 !
-interface GigabitEthernet0/2          # Only for ASW1
+interface GigabitEthernet0/2            # Only for ASW1
  switchport mode access
  switchport access vlan 10
  spanning-tree portfast
@@ -103,7 +103,7 @@ interface GigabitEthernet0/0
 ## Port Security
 
 ```bash
-interface range GigabitEthernet0/1-2  #Include g0/2 only on ASW
+interface range GigabitEthernet0/1-2    # Include G0/2 only on ASW
  switchport port-security
  switchport port-security maximum 2
  switchport port-security violation restrict

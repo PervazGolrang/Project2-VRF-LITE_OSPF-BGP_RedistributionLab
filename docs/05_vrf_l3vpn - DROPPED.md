@@ -1,6 +1,6 @@
-# Step 05 – VRF and L3VPN Configuration
+# Step 05 - VRF and L3VPN Configuration
 
-This step defines VRFs on PE routers, assigns interfaces to VRFs, configures route distinguishers and route targets, and connects each site into the L3VPN. A sham-link is also configured for intra-VRF OSPF continuity between sites.
+This (unfinished) step defines VRFs on PE routers, assigns interfaces to VRFs, configures route distinguishers and route targets, and connects each site into the L3VPN. A sham-link is also configured for intra-VRF OSPF continuity between sites.
 
 # NOTE:
 * This step has been removed due to lab limitations.

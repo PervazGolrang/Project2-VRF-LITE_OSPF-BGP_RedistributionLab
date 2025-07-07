@@ -31,7 +31,7 @@ Because of this, the lab was converted from **MPLS L3VPN** to **VRF-Lite**.
 
 ## VRF-Lite Adjustments
 * Moved `04_mpls.md` and `05_vrf_l3vpn.md` to `docs/`
-* Created new file `05_vrf_lite.md`
+* Created a new file `05_vrf_lite.md`
 * All per-VRF BGP now uses **manual redistribution** (no RT import/export)
 * CE routers (R7, R8) use **OSPF only**, no BGP or MPLS
 * Redistribution is now **one-way**: OSPF ↔ BGP inside VRFs on PE routers

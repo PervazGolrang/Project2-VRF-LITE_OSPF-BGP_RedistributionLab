@@ -1,4 +1,4 @@
-# Step 9 – OPTIONAL Ubuntu Setup (Syslog, NTP, DHCP, SNMP)
+# Step 9 - OPTIONAL Ubuntu Setup (Syslog, NTP, DHCP, SNMP)
 
 This step is performed entirely on the Ubuntu VM. Connect the Ubuntu machine to VLAN 10 and configure the following services:
 

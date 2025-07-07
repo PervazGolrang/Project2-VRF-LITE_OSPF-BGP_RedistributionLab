@@ -1,4 +1,4 @@
-# Project 2 – VRF-Lite, OSPF, BGP, Redistribution & VPN
+# Project 2 - VRF-Lite, OSPF, BGP, Redistribution & VPN
 
 ## Overview
 
@@ -69,16 +69,16 @@ This project simulates a service provider-style environment integrating OSPF, BG
 
 ```
 PROJECT2-VRF-LITE_OSPF_BGP_REDISTRIBUTION_LAB/
-├── configs/            # Final .txt configs for each device
-├── docs/               # Diagrams, reference PDFs, removed steps
+├── configs/              # Final .txt configs for each device
+├── docs/                 # Diagrams, reference PDFs, removed steps
 ├── notes/
-│   └── notes.md        # Free-form implementation notes
-├── steps/              # Step-by-step setup instructions
-├── topology/           # .drawio and/or .top files
+│   └── notes.md          # Free-form implementation notes
+├── steps/                # Step-by-step setup instructions
+├── topology/             # .drawio and/or .top files
 ├── LICENSE
 ├── .gitattributes
-├── folder_structure.md # Folder structure
-└── README.md           # This file
+├── folder_structure.md   # Folder structure
+└── README.md             # This file
 ```
 
 ---
